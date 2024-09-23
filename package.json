@@ -12,7 +12,7 @@
 	"type": "module",
 	"scripts": {
 		"setup": "git init && npx husky init && npx playwright install && shx rm .husky/pre-commit",
-		"format": "prettier src/**/*.{ts,tsx} --write",
+		"format": "prettier \"src/**/*.{ts,tsx}\" --write",
 		"lint": "eslint --max-warnings 0",
 		"lint:fix": "eslint --max-warnings 0 --fix",
 		"dev": "vite",
@@ -101,6 +101,7 @@
 		"jsdom": "^25.0.0",
 		"postcss": "^8.4.41",
 		"prettier": "^3.3.3",
+		"prettier-plugin-organize-imports": "^4.1.0",
 		"prettier-plugin-tailwindcss": "^0.6.6",
 		"prop-types": "^15.8.1",
 		"shx": "^0.3.4",
