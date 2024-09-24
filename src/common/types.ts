@@ -61,7 +61,10 @@ export type AnimeData = {
 	season: string;
 	year: number;
 };
-export type APIResponse = {
+export type AllAnimeAPIResponse = {
 	pagination: object;
 	data: Array<AnimeData>;
+};
+export type AnimeDetailsAPIResponse = {
+	data: AnimeData;
 };

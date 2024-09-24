@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import type { AnimeData } from "../../common/types";
 
 type AnimeContainerProps = {
@@ -9,7 +10,11 @@ function AnimeContainer({ anime }: AnimeContainerProps): JSX.Element {
 		<div className="container m-auto">
 			<div className="grid grid-cols-2 px-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 dark:text-white">
 				{anime.map((animeItem) => (
-					<div key={animeItem.mal_id} className="mb-3 pb-3 pr-3">
+					<Link
+						key={animeItem.mal_id}
+						className="mb-3 pb-3 pr-3"
+						to={`/anime/${animeItem.mal_id}`}
+					>
 						<div className="mb-1 aspect-[2/3]">
 							<img
 								alt={animeItem.title}
@@ -27,7 +32,7 @@ function AnimeContainer({ anime }: AnimeContainerProps): JSX.Element {
 								Rating: {animeItem.score ? animeItem.score : "N/A"}
 							</h3>
 						</div>
-					</div>
+					</Link>
 				))}
 			</div>
 		</div>

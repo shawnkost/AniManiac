@@ -1,22 +1,24 @@
 import { Field, Label, Select } from "@headlessui/react";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
 import {
 	retrieveAiringAnime,
 	retrieveTopAnime,
 	retrieveUpcomingAnime,
 } from "../common/queries";
-import type { APIResponse, FunctionComponent } from "../common/types";
+import type { AllAnimeAPIResponse, FunctionComponent } from "../common/types";
 import {
 	AnimeContainer,
 	Navbar,
 	SkeletonAnimeContainer,
 } from "../components/layout";
+import { useAnimeSelectStore } from "../store/animeSelectStore";
 
 export const Home = (): FunctionComponent => {
-	const [selectedOption, setSelectedOption] = useState("top");
+	const { selectedOption, setSelectedOption } = useAnimeSelectStore();
 
-	function getQueryFunction(option: string): () => Promise<APIResponse> {
+	function getQueryFunction(
+		option: string
+	): () => Promise<AllAnimeAPIResponse> {
 		switch (option) {
 			case "airing":
 				return retrieveAiringAnime;
@@ -45,7 +47,7 @@ export const Home = (): FunctionComponent => {
 	return (
 		<>
 			<Navbar />
-			<main className="bg-eggshell transition-colors duration-300 dark:bg-dark-blue">
+			<main className="transition-colors duration-300">
 				<div className="container m-auto">
 					<div className="flex flex-wrap items-center justify-between px-3 py-3 sm:flex-nowrap dark:text-white">
 						<h1 className="mb-2 font-montserrat text-4xl font-bold sm:mb-0">

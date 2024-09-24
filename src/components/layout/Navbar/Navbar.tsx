@@ -1,5 +1,6 @@
 import { LightBulbIcon as LightBulbOff } from "@heroicons/react/24/outline";
 import { LightBulbIcon as LightBulbOn } from "@heroicons/react/24/solid";
+import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 function Navbar(): JSX.Element {
@@ -34,9 +35,9 @@ function Navbar(): JSX.Element {
 		<header className="bg-deep-indigo py-2 text-white transition-colors duration-300 dark:bg-navy-blue">
 			<div className="container m-auto">
 				<nav className="flex items-center justify-between px-3">
-					<a className="font-montserrat text-2xl font-bold" href="#home">
+					<Link className="font-montserrat text-2xl font-bold" to="/">
 						AniManiac
-					</a>
+					</Link>
 					{lightBulb}
 				</nav>
 			</div>

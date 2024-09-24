@@ -11,12 +11,18 @@
 // Import Routes
 
 import { Route as rootRoute } from "./routes/__root";
+import { Route as AnimeAnimeIdImport } from "./routes/anime.$animeId";
 import { Route as IndexImport } from "./routes/index";
 
 // Create/Update Routes
 
 const IndexRoute = IndexImport.update({
 	path: "/",
+	getParentRoute: () => rootRoute,
+} as any);
+
+const AnimeAnimeIdRoute = AnimeAnimeIdImport.update({
+	path: "/anime/$animeId",
 	getParentRoute: () => rootRoute,
 } as any);
 
@@ -31,12 +37,22 @@ declare module "@tanstack/react-router" {
 			preLoaderRoute: typeof IndexImport;
 			parentRoute: typeof rootRoute;
 		};
+		"/anime/$animeId": {
+			id: "/anime/$animeId";
+			path: "/anime/$animeId";
+			fullPath: "/anime/$animeId";
+			preLoaderRoute: typeof AnimeAnimeIdImport;
+			parentRoute: typeof rootRoute;
+		};
 	}
 }
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({ IndexRoute });
+export const routeTree = rootRoute.addChildren({
+	IndexRoute,
+	AnimeAnimeIdRoute,
+});
 
 /* prettier-ignore-end */
 
@@ -46,11 +62,15 @@ export const routeTree = rootRoute.addChildren({ IndexRoute });
     "__root__": {
       "filePath": "__root.ts",
       "children": [
-        "/"
+        "/",
+        "/anime/$animeId"
       ]
     },
     "/": {
       "filePath": "index.ts"
+    },
+    "/anime/$animeId": {
+      "filePath": "anime.$animeId.ts"
     }
   }
 }
