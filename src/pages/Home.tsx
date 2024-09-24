@@ -45,18 +45,19 @@ export const Home = (): FunctionComponent => {
 	return (
 		<>
 			<Navbar />
-			<main className="bg-eggshell">
+			<main className="bg-eggshell transition-colors duration-300 dark:bg-dark-blue">
 				<div className="container m-auto">
-					<div className="flex items-center justify-between px-3 py-3">
-						<h1 className="font-montserrat text-4xl font-black">
+					<div className="flex flex-wrap items-center justify-between px-3 py-3 sm:flex-nowrap dark:text-white">
+						<h1 className="mb-2 font-montserrat text-4xl font-bold sm:mb-0">
 							{selectedOption === "top" && "Top Anime"}
 							{selectedOption === "airing" && "Airing Anime"}
 							{selectedOption === "upcoming" && "Upcoming Anime"}
 						</h1>
 						<Field>
-							<Label>Currently Viewing:</Label>
+							<Label className="mr-1">Currently Viewing:</Label>
 							<Select
 								aria-label="Anime"
+								className="font-hind font-normal text-black"
 								name="anime"
 								value={selectedOption}
 								onChange={handleOnChange}
