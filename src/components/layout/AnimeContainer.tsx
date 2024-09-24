@@ -7,13 +7,13 @@ type AnimeContainerProps = {
 function AnimeContainer({ anime }: AnimeContainerProps): JSX.Element {
 	return (
 		<div className="container m-auto">
-			<div className="grid grid-cols-2 px-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+			<div className="grid grid-cols-2 px-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 dark:text-white">
 				{anime.map((animeItem) => (
 					<div key={animeItem.mal_id} className="mb-3 pb-3 pr-3">
-						<div className="mb-1">
+						<div className="mb-1 aspect-[2/3]">
 							<img
 								alt={animeItem.title}
-								className="h-[300px] w-full cursor-pointer rounded transition-transform hover:scale-105 lg:h-[315px]"
+								className="h-full w-full cursor-pointer rounded transition-transform hover:scale-105"
 								src={animeItem.images.jpg.image_url}
 							/>
 						</div>
