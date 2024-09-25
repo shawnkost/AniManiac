@@ -2,7 +2,7 @@
 
 A web application that lets the user view the top anime of all time, along with currently airing and upcoming shows.
 
-[Link to live demo](https://shawnkost.github.io/ajax-project/)
+[Link to live demo](https://animaniac.shawnkost.dev/)
 
 ## Current Features
 
